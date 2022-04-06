@@ -1,0 +1,103 @@
+#!/bin/bash
+#
+# 2012 → 2022
+#
+# v1.0
+#
+# LICENCE:
+#
+# 		LICENCE PUBLIQUE
+# 		Version 1, Mars 2009
+# 		Copyright (C) 2009 Sam Hocevar
+# 		14 rue de Plaisance, 75014 Paris, France
+# 
+# 			La copie et la distribution de copies exactes de cette licence sont
+# 			autorisées, et toute modification est permise à condition de changer
+# 			le nom de la licence. 
+# 
+# 		CONDITIONS DE COPIE, DISTRIBUTION ET MODIFICATION
+# 		DE LA LICENCE PUBLIQUE RIEN À BRANLER
+# 
+# 		0. Faites ce que vous voulez, toute copie de cette licence est autorisé.
+
+exec 3>&1
+exec 1>~/wificheck.log
+
+echo [code]
+
+# lsb
+echo -e "\n>>    lsb_release -a\n"
+lsb_release -a
+
+# lsusb
+echo -e "\n>>    lsusb \n"
+lsusb
+
+# lspci -k -nn | grep -A 3 -i net
+echo -e "\n>>    lspci -k -nn | grep -A 3 -i net \n"
+lspci -k -nn | grep -A 3 -i net
+
+# sudo lshw -C network
+echo -e "\n>>    sudo lshw -C network \n"
+sudo lshw -C network
+
+# lsmod
+echo -e "\n>>    lsmod | sort \n"
+lsmod | sort
+
+echo [/code]
+
+echo [code]
+
+# iwconfig
+echo -e "\n>>    iwconfig \n"
+iwconfig
+
+# ip a or ifconfig -a 
+case $(lsb_release -rs) in
+20*|21*|22*)
+  echo -e "\n>>    ip a \n"
+  ip a
+;;
+*)
+  echo -e "\n>>    ifconfig -a \n"
+  ifconfig -a
+;;
+esac
+
+
+# sudo iwlist scan
+echo -e "\n>>    sudo iwlist scan \n"
+sudo iwlist scan
+
+# uname -r -m
+echo -e "\n>>    uname -r -m \n"
+uname -r -m
+
+# cat /etc/network/interfaces
+echo -e "\n>>    cat /etc/network/interfaces \n"
+cat /etc/network/interfaces
+
+# nm-tool show 2>/dev/null
+echo -e "\n>>    nm-tool \n"
+nm-tool show 2>/dev/null
+
+# nmcli dev wifi
+echo -e "\n>>    nmcli dev wifi \n"
+nmcli dev wifi
+
+# nmcli connection
+echo -e "\n>>    nmcli connection list (< 15.04) ou nmcli connection show (>= 15.04) \n"
+nmcli connection show 2>/dev/null || nmcli connection list
+
+# sudo rfkill list
+echo -e "\n>>    sudo rfkill list \n"
+sudo rfkill list
+
+echo [/code]
+
+exec >&3-
+
+echo "Le fichier wificheck.log a été crée dans "$HOME""
+echo "Vous n'avez plus qu'à copier/coller son contenu sur le forum de votre distribution Linux"
+echo "Votre ficher a été généré dans votre dossier personnel → file:/"$HOME"/wificheck.log"
