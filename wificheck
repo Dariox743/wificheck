@@ -95,7 +95,6 @@ echo -e "\n>>    sudo rfkill list \n"
 sudo rfkill list
 
 # ping -c5 google.com
-echo -e "\n>>    ping -c5 google.com \n"
 
 echo [/code]
 
