@@ -11,9 +11,11 @@ Cette commande crée un fichier wificheck.log dans le dossier personnel. Ce fich
 Nota: les balises code sont incluses dans le fichier wificheck.log, inutile de les ajouter.
 
 ===== Pré-requis =====
+
 Le script nécessite des droits administrateur pour l'exécution de certaines commandes, votre mot de passe vous sera donc demandé.
 
 ===== Désinstallation =====
+
 Pour désinstaller le script il suffit de supprimer le fichier wificheck qui ce trouve dans votre dossier personnel.
 
 ----
