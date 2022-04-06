@@ -90,11 +90,12 @@ nmcli dev wifi
 echo -e "\n>>    nmcli connection list (< 15.04) ou nmcli connection show (>= 15.04) \n"
 nmcli connection show 2>/dev/null || nmcli connection list
 
+# sudo rfkill
+echo -e "\n>>    sudo rfkill \n"
+
 # sudo rfkill list
 echo -e "\n>>    sudo rfkill list \n"
 sudo rfkill list
-
-# ping -c5 google.com
 
 echo [/code]
 
