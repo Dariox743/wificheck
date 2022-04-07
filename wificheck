@@ -108,5 +108,5 @@ exec >&3-
 
 echo "Le fichier wificheck.log a été crée dans "$HOME""
 echo "Vous n'avez plus qu'à copier/coller son contenu sur le forum de votre distribution Linux"
-echo "Des informations sensibles comme votre adresse IP peuvent apparaître, vous pouvez les cachées en inscrivent la lettre "x" pou masquer votre IP"
+echo "Des informations sensibles comme votre adresse IP peuvent apparaître, vous pouvez les cachées en inscrivent la lettre X pour masquer votre IP"
 echo "Votre ficher a été généré dans votre dossier personnel → file:/"$HOME"/wificheck.log"
